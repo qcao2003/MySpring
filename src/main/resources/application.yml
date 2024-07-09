@@ -1,0 +1,37 @@
+spring:
+  #设置thymeleaf模板渲染
+  thymeleaf:
+    prefix: classpath:/static/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+
+  web:
+    resources:
+      static-locations: classpath:/static/,classpath:/templates/
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/my_database
+    username: root
+    password: 1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+    #普通浏览器只能get和post请求，
+    #所以如果需要其他的请求方式，需要这个，然后隐藏起来
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  devtools:
+    restart:
+      enabled: true #设置开启热部署
+  freemarker:
+    cache: false #页面不加载缓存，修改即使生效
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #下划线驼峰设置
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl   # 打印SQL语句
+

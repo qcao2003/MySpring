@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>输入支付信息</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div style="width:600px;height:100%;margin-left:270px;">
+    <form action="/alipay/pay" method="get">
+        <!--        form-control给input添加这个class后就会使用bootstrap自带的input框-->
+<!--        订单号：<input class="form-control" type="text" th:value="${traceNo}" name="traceNo"><br>-->
+        <!--注意参数的拼接-->
+        货物名称：<input class="form-control" type="text" th:value="${subject}" name="subject"><br>
+        金额：<input class="form-control" type="text" th:value="${totalAmount}" name="totalAmount"><br>
+        <button class="btn btn-primary btn-lg btn-block">保存</button>
+    </form>
+</div>
+
+</body>
+</html>
